@@ -1,0 +1,9 @@
+1 - Construir a class que contem os metodos acessores (classe de entidades)
+2 - Construir a class que faz a conexao com o BD (classe de conexão)
+3 - Construir a class de interface  que tera os metodos para a class de persistencia 
+4 - Construir a class de persistencia ou que faz a conexão com o banco (class Dao)
+5 - Construir a class que intermedia a interface grafica da class que faz a conexao c/BD
+  (class de serviço) É nesta class  que é feita toda a regra de negocio se necessario
+6 - Construir a class de controle (class controller) A class de controler é apenas voltada para a interface grafica.
+7 - Construir a class de tabela (TableModel extends AbstractTableModel) Class onde é criada todos os metodos para a criação de uma tabela com conexão com BD.
+8 - Construir a class de interface grafica (JFrame)
