@@ -4,6 +4,7 @@ package table;
 import java.awt.Color;
 import java.awt.Component;
 import javax.swing.JTable;
+import javax.swing.border.Border;
 import javax.swing.table.DefaultTableCellRenderer;
 
 public class LivroCellRenderer extends DefaultTableCellRenderer {
@@ -11,6 +12,8 @@ public class LivroCellRenderer extends DefaultTableCellRenderer {
     @Override
     public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
         super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
+        
+        
         
         if ( row % 2 == 0 ){
             setBackground( Color.YELLOW );
@@ -29,4 +32,6 @@ public class LivroCellRenderer extends DefaultTableCellRenderer {
         
         return this;
     }
+
+      
 }

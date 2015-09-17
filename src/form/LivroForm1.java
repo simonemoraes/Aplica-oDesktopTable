@@ -3,7 +3,7 @@ package form;
 import controller.LivroController;
 import entity.Livro;
 
-import java.awt.HeadlessException;
+
 import java.util.List;
 import javax.swing.*;
 import net.miginfocom.swing.MigLayout;
@@ -15,10 +15,10 @@ public class LivroForm1 extends javax.swing.JFrame {
     private List<Livro> livroList;
     private Long idLivro;
 
-    public LivroForm1() throws HeadlessException {
+    public LivroForm1()  {
         super("Cadastro de Livros");
         initComponents();
-        redefinindoLayout();
+        //redefinindoLayout();
         refreshTable();
         enableFields(false);
         this.setVisible(true);
@@ -125,14 +125,13 @@ public class LivroForm1 extends javax.swing.JFrame {
         table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
                 {null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Título 1", "Título 2", "Título 3", "Título 4"
             }
         ));
+        table.setGridColor(new java.awt.Color(153, 153, 153));
         scrollPane.setViewportView(table);
 
         javax.swing.GroupLayout panelTableLayout = new javax.swing.GroupLayout(panelTable);
@@ -271,6 +270,9 @@ public class LivroForm1 extends javax.swing.JFrame {
 
     private void onSaveLivro() {
         Livro livro = new Livro();
+        int result = 0;
+        /* Teste para saber se o campo está ou não preenchido. 
+           O método length permite descobrir o número de caráteres contidos numa String.*/
         if (tf_Editora.getText().length() > 0 && tf_Titulo.getText().length() > 0 && tf_Isbn.getText().length() > 0) {
             livro.setEditora(tf_Editora.getText());
             livro.setTitulo(tf_Titulo.getText());
@@ -279,8 +281,7 @@ public class LivroForm1 extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Todos os são obrigatórios!");
             return;
         }
-
-        int result = 0;
+       
         if (idLivro == null) {
             result = new LivroController().addLivro(livro);
         } else {
@@ -335,6 +336,7 @@ public class LivroForm1 extends javax.swing.JFrame {
 
         int confirm = JOptionPane.showConfirmDialog(this, "Confirmar exclusão?", "Excluir Livro", JOptionPane.YES_NO_OPTION);
 
+        /* */
         if (confirm != 0) {
             return;
         }
@@ -368,7 +370,7 @@ public class LivroForm1 extends javax.swing.JFrame {
 
         livroList = new LivroController().findLivros();
         if (livroList != null) {
-            table.setModel(new LivroTableModel(livroList));
+            table.setModel( new LivroTableModel(livroList));
             table.setDefaultRenderer(Object.class, new LivroCellRenderer());
         }
     }
